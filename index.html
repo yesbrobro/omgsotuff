@@ -1,427 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>omg images generatior!!!!</title>
-    <style>
-        :root {
-            --bg-color: #1a1a1a;
-            --card-bg: #252525;
-            --text-color: #e0e0e0;
-            --accent-color: #6c5ce7;
-            --accent-hover: #5649c9;
-            --border-color: #333;
-            --input-bg: #333;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>omg images generatior!!!!</title>
+ <style>
+ :root {
+ --bg-color: #1a1a1a;
+ --card-bg: #252525;
+ --text-color: #e0e0e0;
+ --accent-color: #6c5ce7;
+ --accent-hover: #5649c9;
+ --border-color: #333;
+ --input-bg: #333;
+ }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background-color: var(--bg-color);
+ color: var(--text-color);
+ margin: 0;
+ padding: 20px;
+ display: flex;
+ justify-content: center;
+ min-height: 100vh;
+ }
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
+ .container {
+ width: 100%;
+ max-width: 900px;
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 20px;
+ }
 
-        @media (min-width: 768px) {
-            .container {
-                grid-template-columns: 1fr 1fr;
-            }
-            .full-width {
-                grid-column: span 2;
-            }
-        }
+ @media (min-width: 768px) {
+ .container {
+ grid-template-columns: 1fr 1fr;
+ }
+ .full-width {
+ grid-column: span 2;
+ }
+ }
 
-        .panel {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            border: 1px solid var(--border-color);
-        }
+ .panel {
+ background-color: var(--card-bg);
+ padding: 20px;
+ border-radius: 12px;
+ box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+ border: 1px solid var(--border-color);
+ }
 
-        h1 {
-            grid-column: span 2;
-            text-align: center;
-            margin-bottom: 10px;
-            color: #fff;
-        }
+ h1 {
+ grid-column: span 2;
+ text-align: center;
+ margin-bottom: 10px;
+ color: #fff;
+ }
 
-        h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
+ h2 {
+ margin-top: 0;
+ font-size: 1.2rem;
+ border-bottom: 1px solid var(--border-color);
+ padding-bottom: 10px;
+ margin-bottom: 15px;
+ }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
+ label {
+ display: block;
+ margin-bottom: 5px;
+ font-size: 0.9rem;
+ color: #aaa;
+ }
 
-        input[type="text"], 
-        textarea, 
-        select {
-            width: 100%;
-            padding: 10px;
-            background-color: var(--input-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: white;
-            box-sizing: border-box;
-            margin-bottom: 15px;
-            font-family: inherit;
-        }
+ input[type="text"], 
+ textarea, 
+ select {
+ width: 100%;
+ padding: 10px;
+ background-color: var(--input-bg);
+ border: 1px solid var(--border-color);
+ border-radius: 6px;
+ color: white;
+ box-sizing: border-box;
+ margin-bottom: 15px;
+ font-family: inherit;
+ }
 
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
+ textarea {
+ resize: vertical;
+ min-height: 100px;
+ }
 
-        input[type="file"] {
-            margin-bottom: 15px;
-            width: 100%;
-        }
+ input[type="file"] {
+ margin-bottom: 15px;
+ width: 100%;
+ }
 
-        button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-            transition: background-color 0.2s;
-        }
+ button {
+ background-color: var(--accent-color);
+ color: white;
+ border: none;
+ padding: 12px 20px;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 1rem;
+ width: 100%;
+ transition: background-color 0.2s;
+ }
 
-        button:hover {
-            background-color: var(--accent-hover);
-        }
+ button:hover {
+ background-color: var(--accent-hover);
+ }
 
-        button:disabled {
-            background-color: #555;
-            cursor: not-allowed;
-        }
+ button:disabled {
+ background-color: #555;
+ cursor: not-allowed;
+ }
 
-        .status {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            min-height: 20px;
-        }
+ .status {
+ margin-top: 10px;
+ font-size: 0.9rem;
+ min-height: 20px;
+ }
 
-        .error { color: #ff6b6b; }
-        .success { color: #51cf66; }
+ .error { color: #ff6b6b; }
+ .success { color: #51cf66; }
 
-        .image-preview-container {
-            margin-top: 15px;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed var(--border-color);
-            border-radius: 6px;
-            padding: 10px;
-            background: #1a1a1a;
-        }
+ .image-preview-container {
+ margin-top: 15px;
+ min-height: 50px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 1px dashed var(--border-color);
+ border-radius: 6px;
+ padding: 10px;
+ background: #1a1a1a;
+ }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            display: none;
-        }
+ img {
+ max-width: 100%;
+ height: auto;
+ border-radius: 6px;
+ display: none;
+ }
 
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--accent-color);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: none;
-        }
+ .loading-spinner {
+ border: 4px solid #f3f3f3;
+ border-top: 4px solid var(--accent-color);
+ border-radius: 50%;
+ width: 30px;
+ height: 30px;
+ animation: spin 1s linear infinite;
+ display: none;
+ }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+ @keyframes spin {
+ 0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
+ }
 
-        .result-image {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .checkbox-group input {
-            width: auto;
-            margin: 0;
-        }
-    </style>
+ .result-image {
+ max-width: 100%;
+ border-radius: 8px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+ }
+ 
+ .checkbox-group {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ margin-bottom: 15px;
+ }
+ 
+ .checkbox-group input {
+ width: auto;
+ margin: 0;
+ }
+ </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Agnes AI Generator</h1>
+ <h1>Agnes AI Generator</h1>
 
-    <!-- Input Panel -->
-    <div class="panel full-width">
-        <label for="apiKey">API Key</label>
-        <input type="text" id="apiKey" value="sk-tePLOWIcr4b6y9eLFusur7aexyYnOqwJTxAH40ohSHZVXpvm">
-        
-        <label for="prompt">Prompt</label>
-        <textarea id="prompt" placeholder="type the prompt boi"></textarea>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-                <label for="model">Model (only change if you know what your doing)</label>
-                <input type="text" id="model" value="agnes-image-2.5-flash">
-            </div>
-            <div>
-                <label for="size">Size</label>
-                <select id="size">
-                    <option value="1K">1K</option>
-                    <option value="2K">2K</option>
-                    <option value="3K" selected>3K</option>
-                    <option value="4K">4K</option>
-                    <option value="1024x1024">1024x1024 (Legacy)</option>
-                    <option value="1024x768">1024x768 (Legacy)</option>
-                    <option value="768x1024">768x1024 (Legacy)</option>
-                </select>
-            </div>
-        </div>
+ <!-- Input Panel -->
+ <div class="panel full-width">
+ <label for="apiKey">API Key</label>
+ <input type="text" id="apiKey" value="sk-tePLOWIcr4b6y9eLFusur7aexyYnOqwJTxAH40ohSHZVXpvm">
+ 
+ <label for="prompt">Prompt</label>
+ <textarea id="prompt" placeholder="type the prompt boi"></textarea>
+ 
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+ <div>
+ <label for="model">Model (only change if you know what your doing)</label>
+ <input type="text" id="model" value="agnes-image-2.5-flash">
+ </div>
+ <div>
+ <label for="size">Size</label>
+ <select id="size">
+ <option value="1K">1K</option>
+ <option value="2K">2K</option>
+ <option value="3K" selected>3K</option>
+ <option value="4K">4K</option>
+ <option value="1024x1024">1024x1024 (Legacy)</option>
+ <option value="1024x768">1024x768 (Legacy)</option>
+ <option value="768x1024">768x1024 (Legacy)</option>
+ </select>
+ </div>
+ </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-                <label for="ratio">Aspect Ratio</label>
-                <select id="ratio">
-                    <option value="1:1" selected>1:1</option>
-                    <option value="16:9">16:9</option>
-                    <option value="9:16">9:16</option>
-                    <option value="4:3">4:3</option>
-                    <option value="3:4">3:4</option>
-                    <option value="21:9">21:9</option>
-                    <option value="2:3">2:3</option>
-                    <option value="3:2">3:2</option>
-                </select>
-            </div>
-            <div>
-                <label for="returnBase64">Return Format</label>
-                <select id="returnBase64">
-                    <option value="false" selected>URL (Default)</option>
-                    <option value="true">Base64</option>
-                </select>
-            </div>
-        </div>
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+ <div>
+ <label for="ratio">Aspect Ratio</label>
+ <select id="ratio">
+ <option value="1:1" selected>1:1</option>
+ <option value="16:9">16:9</option>
+ <option value="9:16">9:16</option>
+ <option value="4:3">4:3</option>
+ <option value="3:4">3:4</option>
+ <option value="21:9">21:9</option>
+ <option value="2:3">2:3</option>
+ <option value="3:2">3:2</option>
+ </select>
+ </div>
+ <div>
+ <label for="returnBase64">Return Format</label>
+ <select id="returnBase64">
+ <option value="false" selected>URL (Default)</option>
+ <option value="true">Base64</option>
+ </select>
+ </div>
+ </div>
 
-        <button id="generateBtn" onclick="generateImage()">Generate Image</button>
-        <div id="statusMessage" class="status"></div>
-    </div>
+ <button id="generateBtn" onclick="generateImage()">Generate Image</button>
+ <div id="statusMessage" class="status"></div>
+ </div>
 
-    <!-- Result Panel -->
-    <div class="panel full-width">
-        <h2>Result</h2>
-        <div id="resultContainer" style="text-align: center;">
-            <div class="loading-spinner" id="spinner"></div>
-            <img id="resultImage" alt="Generated Image" />
-            <div id="noImageMsg" style="color: #666; padding: 20px;">No image generated yet.</div>
-        </div>
-        <div style="margin-top: 15px; text-align: center;" id="downloadArea" style="display:none;">
-            <a id="downloadLink" href="#" download="generated_image.png" style="color: var(--accent-color); text-decoration: none;">Download Full Resolution</a>
-        </div>
-    </div>
+ <!-- Result Panel -->
+ <div class="panel full-width">
+ <h2>Result</h2>
+ <div id="resultContainer" style="text-align: center;">
+ <div class="loading-spinner" id="spinner"></div>
+ <img id="resultImage" alt="Generated Image" />
+ <div id="noImageMsg" style="color: #666; padding: 20px;">No image generated yet.</div>
+ </div>
+ <div style="margin-top: 15px; text-align: center;" id="downloadArea" style="display:none;">
+ <a id="downloadLink" href="#" download="generated_image.png" style="color: var(--accent-color); text-decoration: none;">Download Full Resolution</a>
+ </div>
+ </div>
 
-    <!-- Optional: Image-to-Image -->
-    <div class="panel full-width">
-        <h2>Image-to-Image (Optional)</h2>
-        <label for="sourceImage">Upload Source Image (URL or File)</label>
-        <input type="file" id="sourceImage" accept="image/*">
-        <div class="image-preview-container">
-            <img id="previewSource" alt="Preview">
-        </div>
-        <p style="font-size: 0.8rem; color: #777; margin-top: 5px;">
-            Note: If left empty, it defaults to Text-to-Image. If a file is uploaded, it will be converted to Base64 for the request.
-        </p>
-    </div>
+ <!-- Optional: Image-to-Image -->
+ <div class="panel full-width">
+ <h2>Image-to-Image (Optional)</h2>
+ <label for="sourceImage">Upload Source Image (URL or File)</label>
+ <input type="file" id="sourceImage" accept="image/*">
+ <div class="image-preview-container">
+ <img id="previewSource" alt="Preview">
+ </div>
+ <p style="font-size: 0.8rem; color: #777; margin-top: 5px;">
+ Note: If left empty, it defaults to Text-to-Image. If a file is uploaded, it will be converted to Base64 for the request.
+ </p>
+ </div>
 </div>
 
 <script>
-    const API_URL = "https://apihub.agnes-ai.com/v1/images/generations";
-    
-    // DOM Elements
-    const apiKeyInput = document.getElementById('apiKey');
-    const promptInput = document.getElementById('prompt');
-    const modelInput = document.getElementById('model');
-    const sizeInput = document.getElementById('size');
-    const ratioInput = document.getElementById('ratio');
-    const returnBase64Input = document.getElementById('returnBase64');
-    const sourceImageInput = document.getElementById('sourceImage');
-    const previewSourceImg = document.getElementById('previewSource');
-    const resultImage = document.getElementById('resultImage');
-    const spinner = document.getElementById('spinner');
-    const statusMsg = document.getElementById('statusMessage');
-    const noImageMsg = document.getElementById('noImageMsg');
-    const downloadArea = document.getElementById('downloadArea');
-    const downloadLink = document.getElementById('downloadLink');
+ const API_URL = "https://apihub.agnes-ai.com/v1/images/generations";
+ 
+ // DOM Elements
+ const apiKeyInput = document.getElementById('apiKey');
+ const promptInput = document.getElementById('prompt');
+ const modelInput = document.getElementById('model');
+ const sizeInput = document.getElementById('size');
+ const ratioInput = document.getElementById('ratio');
+ const returnBase64Input = document.getElementById('returnBase64');
+ const sourceImageInput = document.getElementById('sourceImage');
+ const previewSourceImg = document.getElementById('previewSource');
+ const resultImage = document.getElementById('resultImage');
+ const spinner = document.getElementById('spinner');
+ const statusMsg = document.getElementById('statusMessage');
+ const noImageMsg = document.getElementById('noImageMsg');
+ const downloadArea = document.getElementById('downloadArea');
+ const downloadLink = document.getElementById('downloadLink');
 
-    let sourceImageBase64 = null;
+ let sourceImageBase64 = null;
 
-    // Handle File Upload Preview and Conversion
-    sourceImageInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                previewSourceImg.src = event.target.result;
-                previewSourceImg.style.display = 'block';
-                sourceImageBase64 = event.target.result; // Data URI
-            };
-            reader.readAsDataURL(file);
-        } else {
-            previewSourceImg.style.display = 'none';
-            sourceImageBase64 = null;
-        }
-    });
+ // Handle File Upload Preview and Conversion
+ sourceImageInput.addEventListener('change', function(e) {
+ const file = e.target.files[0];
+ if (file) {
+ const reader = new FileReader();
+ reader.onload = function(event) {
+ previewSourceImg.src = event.target.result;
+ previewSourceImg.style.display = 'block';
+ sourceImageBase64 = event.target.result; // Data URI
+ };
+ reader.readAsDataURL(file);
+ } else {
+ previewSourceImg.style.display = 'none';
+ sourceImageBase64 = null;
+ }
+ });
 
-    async function generateImage() {
-        const apiKey = apiKeyInput.value.trim();
-        const prompt = promptInput.value.trim();
-        
-        if (!apiKey) {
-            showStatus("Please enter an API Key.", "error");
-            return;
-        }
-        if (!prompt) {
-            showStatus("Please enter a prompt.", "error");
-            return;
-        }
+ async function generateImage() {
+ const apiKey = apiKeyInput.value.trim();
+ const prompt = promptInput.value.trim();
+ 
+ if (!apiKey) {
+ showStatus("Please enter an API Key.", "error");
+ return;
+ }
+ if (!prompt) {
+ showStatus("Please enter a prompt.", "error");
+ return;
+ }
 
-        // Reset UI
-        resetUI();
-        showLoading(true);
+ // Reset UI
+ resetUI();
+ showLoading(true);
 
-        try {
-            // Construct Payload
-            const payload = {
-                model: modelInput.value || "agnes-image-2.5-flash",
-                prompt: prompt,
-                size: sizeInput.value,
-                ratio: ratioInput.value,
-                return_base64: returnBase64Input.value === "true"
-            };
+ try {
+ // Construct Payload
+ const payload = {
+ model: modelInput.value || "agnes-image-2.5-flash",
+ prompt: prompt,
+ size: sizeInput.value,
+ ratio: ratioInput.value,
+ // FORCE BASE64 to avoid external URL issues
+ return_base64: true 
+ };
 
-            // Add Image-to-Image if present
-            if (sourceImageBase64) {
-                payload.image = [sourceImageBase64];
-            }
+ // Add Image-to-Image if present
+ if (sourceImageBase64) {
+ payload.image = [sourceImageBase64];
+ }
 
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify(payload)
-            });
+ const response = await fetch(API_URL, {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ 'Authorization': `Bearer ${apiKey}`
+ },
+ body: JSON.stringify(payload)
+ });
 
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({ detail: response.statusText }));
-                throw new Error(`API Error ${response.status}: ${errorData.detail || 'Unknown error'}`);
-            }
+ if (!response.ok) {
+ const errorData = await response.json().catch(() => ({ detail: response.statusText }));
+ throw new Error(`API Error ${response.status}: ${errorData.detail || 'Unknown error'}`);
+ }
 
-            const data = await response.json();
-            
-            // Handle Response
-            // Assuming standard structure: { data: [{ url: "...", b64_json: "..." }] }
-            // Or direct URL depending on implementation
-            
-            let imageUrl = null;
-            let base64Data = null;
+ const data = await response.json();
+ 
+ // Handle Response
+ let imageUrl = null;
+ let base64Data = null;
 
-            if (data.data && data.data.length > 0) {
-                const item = data.data[0];
-                if (item.url) {
-                    imageUrl = item.url;
-                } else if (item.b64_json) {
-                    base64Data = item.b64_json;
-                    imageUrl = `data:image/png;base64,${base64Data}`;
-                }
-            } else if (data.url) {
-                imageUrl = data.url;
-            } else if (data.output && data.output[0]) {
-                 // Fallback for other potential structures
-                 imageUrl = data.output[0].url || data.output[0];
-            }
+ // Check standard structure first
+ if (data.data && data.data.length > 0) {
+ const item = data.data[0];
+ if (item.b64_json) {
+ base64Data = item.b64_json;
+ imageUrl = `data:image/png;base64,${base64Data}`;
+ } else if (item.url) {
+ imageUrl = item.url;
+ }
+ } 
+ // Fallback to root level url
+ else if (data.url) {
+ imageUrl = data.url;
+ } 
+ // Fallback to output array
+ else if (data.output && data.output[0]) {
+     const item = data.output[0];
+     if (item.b64_json) {
+         base64Data = item.b64_json;
+         imageUrl = `data:image/png;base64,${base64Data}`;
+     } else if (item.url) {
+         imageUrl = item.url;
+     }
+ }
 
-            if (imageUrl) {
-                resultImage.src = imageUrl;
-                resultImage.style.display = 'block';
-                noImageMsg.style.display = 'none';
-                
-                // Setup Download
-                downloadLink.href = imageUrl;
-                downloadArea.style.display = 'block';
-                showStatus("Image generated successfully!", "success");
-            } else {
-                throw new Error("Response did not contain an image URL or Base64 data.");
-            }
+ if (imageUrl) {
+ resultImage.src = imageUrl;
+ resultImage.style.display = 'block';
+ noImageMsg.style.display = 'none';
+ 
+ // Setup Download using Blob to ensure it works locally without CDN
+ if (base64Data) {
+     // Create a blob from the base64 string
+     const byteCharacters = atob(base64Data);
+     const byteNumbers = new Array(byteCharacters.length);
+     for (let i = 0; i < byteCharacters.length; i++) {
+         byteNumbers[i] = byteCharacters.charCodeAt(i);
+     }
+     const byteArray = new Uint8Array(byteNumbers);
+     const blob = new Blob([byteArray], {type: 'image/png'});
+     const blobUrl = URL.createObjectURL(blob);
+     
+     downloadLink.href = blobUrl;
+     resultImage.src = blobUrl; // Update image src to blob too
+ } else {
+     downloadLink.href = imageUrl;
+ }
+ 
+ downloadArea.style.display = 'block';
+ showStatus("Image generated successfully!", "success");
+ } else {
+ throw new Error("Response did not contain an image URL or Base64 data.");
+ }
 
-        } catch (error) {
-            console.error(error);
-            showStatus(`Failed: ${error.message}`, "error");
-        } finally {
-            showLoading(false);
-        }
-    }
+ } catch (error) {
+ console.error(error);
+ showStatus(`Failed: ${error.message}`, "error");
+ } finally {
+ showLoading(false);
+ }
+ }
 
-    function showLoading(isLoading) {
-        if (isLoading) {
-            spinner.style.display = 'block';
-            resultImage.style.display = 'none';
-            noImageMsg.style.display = 'none';
-            downloadArea.style.display = 'none';
-            document.getElementById('generateBtn').disabled = true;
-            document.getElementById('generateBtn').textContent = "Generating...";
-        } else {
-            spinner.style.display = 'none';
-            document.getElementById('generateBtn').disabled = false;
-            document.getElementById('generateBtn').textContent = "Generate Image";
-        }
-    }
+ function showLoading(isLoading) {
+ if (isLoading) {
+ spinner.style.display = 'block';
+ resultImage.style.display = 'none';
+ noImageMsg.style.display = 'none';
+ downloadArea.style.display = 'none';
+ document.getElementById('generateBtn').disabled = true;
+ document.getElementById('generateBtn').textContent = "Generating...";
+ } else {
+ spinner.style.display = 'none';
+ document.getElementById('generateBtn').disabled = false;
+ document.getElementById('generateBtn').textContent = "Generate Image";
+ }
+ }
 
-    function showStatus(msg, type) {
-        statusMsg.textContent = msg;
-        statusMsg.className = 'status ' + type;
-    }
+ function showStatus(msg, type) {
+ statusMsg.textContent = msg;
+ statusMsg.className = 'status ' + type;
+ }
 
-    function resetUI() {
-        statusMsg.textContent = "";
-        statusMsg.className = 'status';
-        resultImage.style.display = 'none';
-        noImageMsg.style.display = 'block';
-        downloadArea.style.display = 'none';
-    }
+ function resetUI() {
+ statusMsg.textContent = "";
+ statusMsg.className = 'status';
+ resultImage.style.display = 'none';
+ noImageMsg.style.display = 'block';
+ downloadArea.style.display = 'none';
+ }
 </script>
 
 </body>
